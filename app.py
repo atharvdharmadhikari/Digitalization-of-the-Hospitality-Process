@@ -55,11 +55,11 @@ def allocate_rooms(group_filepath, hostel_filepath):
 
         for _, room in hostels.iterrows():
             if room['Capacity'] >= members:
-                allocation.append([group_id, room['Hostel Name'], room['Room Number'], members])
-                hostels_df.loc[(hostels_df['Hostel Name'] == room['Hostel Name']) & (hostels_df['Room Number'] == room['Room Number']), 'Capacity'] -= members
+                allocation.append([group_id, room['Hostel Name'], room['Roll Number'], members])
+                hostels_df.loc[(hostels_df['Hostel Name'] == room['Hostel Name']) & (hostels_df['Roll Number'] == room['Roll Number']), 'Capacity'] -= members
                 break
 
-    allocation_df = pd.DataFrame(allocation, columns=['Group ID', 'Hostel Name', 'Room Number', 'Members Allocated'])
+    allocation_df = pd.DataFrame(allocation, columns=['Group ID', 'Hostel Name', 'Roll Number', 'Members Allocated'])
     return allocation_df
 
 if __name__ == '__main__':
